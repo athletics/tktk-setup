@@ -1,12 +1,13 @@
 #!/usr/bin/env node
 
-// npx @wordpress/create-block kieran-timberlake --template ~/Development/tktk-blocks-template
-
 const { program } = require('commander');
-const input = require('@inquirer/prompts/input');
+const { input } = require('@inquirer/prompts');
 const installWordPress = require('../lib/install-wordpress');
 const installTheme = require('../lib/install-theme');
 const installBlocks = require('../lib/install-blocks-plugin');
+const buildAssets = require('../lib/build-assets');
+const outputProjectInfo = require('../lib/output-project-info');
+const log = require('../lib/log');
 
 program
   .name('tktk-setup')
@@ -20,23 +21,22 @@ program
     });
     const themeName = await input({
       message: 'Enter the theme name:',
-      default: 'tktk-theme',
+      default: 'my-theme',
     });
     const blocksPluginName = await input({
       message: 'Enter the blocks plugin name:',
-      default: 'tktk-blocks',
+      default: 'my-blocks',
     });
 
-    console.log(`🚀 Setting up project: ${projectName}`);
+    log.info(`🚀 Setting up project: ${projectName}\n`);
 
     try {
       await installWordPress(projectName);
       await installTheme(projectName, themeName);
       await installBlocks(projectName, blocksPluginName);
+      await buildAssets(projectName, themeName, blocksPluginName);
 
-      console.log(
-        '✅ Setup complete! Navigate to your project and start development.'
-      );
+      outputProjectInfo(projectName);
     } catch (error) {
       console.error('❌ An error occurred:', error);
     }
