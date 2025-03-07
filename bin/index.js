@@ -1,7 +1,15 @@
 #!/usr/bin/env node
 
+/*
+ * External dependencies
+ */
 const { program } = require('commander');
 const { input } = require('@inquirer/prompts');
+const chalk = require('chalk');
+
+/*
+ * Internal dependencies
+ */
 const installWordPress = require('../lib/install-wordpress');
 const installTheme = require('../lib/install-theme');
 const installBlocks = require('../lib/install-blocks-plugin');
@@ -15,7 +23,21 @@ program
     'CLI tool to set up a WordPress project with the TKTK theme and blocks.'
   )
   .action(async () => {
-    // Prompt user for project details
+    log.info(
+      chalk.cyan.bold(`
+      ████████╗██╗░░██╗████████╗██╗░░██╗
+      ╚══██╔══╝██║░██╔╝╚══██╔══╝██║░██╔╝
+      ░░░██║░░░█████═╝░░░░██║░░░█████═╝░
+      ░░░██║░░░██╔═██╗░░░░██║░░░██╔═██╗░
+      ░░░██║░░░██║░╚██╗░░░██║░░░██║░╚██╗
+      ░░░╚═╝░░░╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚═╝
+      `)
+    );
+
+    log.info(
+      chalk.yellow.bold('TKTK Setup: WordPress, Theme & Blocks Installer\n')
+    );
+
     const projectName = await input({
       message: 'Enter the project folder name:',
     });
