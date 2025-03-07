@@ -26,7 +26,7 @@ npm install -g tktk-setup
 To create a new WordPress project using TKTK:
 
 ```sh
-tktk-setup install
+tktk-setup
 ```
 
 You'll be prompted to enter:
@@ -44,23 +44,13 @@ After installation, you'll see setup details, including the **local site URL**, 
 ### **Create a New Project**
 
 ```sh
-tktk-setup install
+tktk-setup
 ```
 
 - Installs WordPress
 - Links it to Valet (`valet link`)
 - Installs the TKTK theme and blocks plugin
 - Builds assets for the theme and plugin
-
-### **View Installed Projects**
-
-_(Feature in development)_
-
-```sh
-tktk-setup list
-```
-
-- Shows all projects created with `tktk-setup`
 
 ---
 
@@ -125,14 +115,12 @@ wp core install --url=http://my-project.test --title="My Project" --admin_user=a
 
 ## 🔮 Future Enhancements
 
-- Add `tktk-setup list` to show all installations
-- Option to auto-delete test installs after setup
-- More customization for database and admin user
+- tktk
 
 ---
 
 ## 🏠 Maintainers
 
-Developed by **[Your Name / Your Team]**.
+Developed by **[Britton Walker / Athletics]**.
 
 Contributions and suggestions welcome! 🚀
