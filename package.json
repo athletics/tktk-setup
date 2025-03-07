@@ -1,5 +1,5 @@
 {
-  "name": "tktk-setup",
+  "name": "@athletics/tktk-setup",
   "version": "1.0.0",
   "description": "CLI to set up a WordPress project with the TKTK theme and blocks",
   "license": "ISC",
