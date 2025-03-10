@@ -50,7 +50,7 @@ program
       default: 'my-blocks',
     });
 
-    log.info(`🚀 Setting up project: ${projectName}\n`);
+    log.info(`\n🚀 Setting up project: ${projectName}\n`);
 
     try {
       await installWordPress(projectName);
@@ -58,7 +58,7 @@ program
       await installBlocks(projectName, blocksPluginName);
       await buildAssets(projectName, themeName, blocksPluginName);
 
-      outputProjectInfo(projectName);
+      outputProjectInfo(projectName, themeName, blocksPluginName);
     } catch (error) {
       console.error('❌ An error occurred:', error);
     }
